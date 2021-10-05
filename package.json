@@ -4,12 +4,19 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "ts-node api/index.ts"
   },
   "author": "scottadamsmith",
   "license": "ISC",
   "dependencies": {
+    "@neo4j/graphql": "^2.2.0",
     "apollo-server": "^3.3.0",
-    "graphql": "^15.6.0"
+    "dotenv": "^10.0.0",
+    "graphql": "^15.6.0",
+    "neo4j-driver": "^4.3.3"
+  },
+  "devDependencies": {
+    "neo-forgery": "^1.9.1"
   }
 }

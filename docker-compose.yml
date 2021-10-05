@@ -1,20 +1,22 @@
 version: '3.7'
+
+networks:
+    familyconnect:
+
 services:
   family-connect-dev:
+    container_name: family-connect-dev
+    networks:
+      - familyconnect
     volumes:
       - ./:/workspaces/family-connect
       - /home/node/.npm
       - /workspaces/node_modules
-  dynamodb-local:
-    image: amazon/dynamodb-local:latest
-    container_name: dynamodb-local
+  neo4j:
+    container_name: neo4jlocal
+    networks:
+      - familyconnect
+    image: neo4j:latest
     ports:
-      - "8000:8000"
-  dynamodb-admin:
-    image: aaronshaf/dynamodb-admin
-    ports:
-      - "8001:8001"
-    environment:
-      DYNAMO_ENDPOINT: "http://dynamodb-local:8000"
-    depends_on:
-      - dynamodb-local
+      - "7474:7474"
+      - "7687:7687"
