@@ -16,11 +16,6 @@ const schema = new Neo4jGraphQL({
     typeDefs,
 }).schema;
 
-console.log(process.env.DB_URI)
-console.log(process.env.DB_USER)
-console.log(process.env.DB_PASSWORD)
-
-
 const driver = neo4j.driver(
     process.env.DB_URI,
     neo4j.auth.basic(
@@ -43,7 +38,6 @@ const server:ApolloServer = new ApolloServer(
         schema,
         context,
     });
-
 
 // @ts-ignore
 server.listen().then(({ url }) => {
