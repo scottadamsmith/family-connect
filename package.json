@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "api": "ts-node api/index.ts"
+    "api": "nodemon api/index.ts"
   },
   "author": "scottadamsmith",
   "license": "ISC",
@@ -17,6 +17,9 @@
     "neo4j-driver": "^4.3.3"
   },
   "devDependencies": {
-    "neo-forgery": "^1.9.1"
+    "neo-forgery": "^1.9.1",
+    "nodemon": "^2.0.13",
+    "ts-node": "^10.2.1",
+    "typescript": "^4.4.3"
   }
 }

@@ -1,0 +1,11 @@
+type User {
+  userName: String!
+  firstName: String
+  lastName: String
+}
+
+type Message {
+  text: String
+  timestamp: DateTime
+}
+

@@ -4,13 +4,7 @@ const neo4j = require('neo4j-driver');
 import { Neo4jGraphQL } from '@neo4j/graphql';
 import {ApolloServer} from "apollo-server";
 const { gql } = require('apollo-server');
-
-const typeDefs = gql`
-  type Book {
-    title: String
-    author: String
-  }
-`;
+import { typeDefs } from './schema'
 
 const schema = new Neo4jGraphQL({
     typeDefs,
@@ -39,7 +33,21 @@ const server:ApolloServer = new ApolloServer(
         context,
     });
 
-// @ts-ignore
+// // @ts-ignore
 server.listen().then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
 });
+
+process.on('SIGTERM', () => {
+    console.info('SIGTERM signal received.');
+    server.stop()
+});
+process.on('SIGINT', () => {
+    console.info('SIGTERM signal received.');
+    server.stop()
+});
+
+process.on("STOP", function(){
+    console.log("Exiting apollo server");
+    server.stop()
+})
