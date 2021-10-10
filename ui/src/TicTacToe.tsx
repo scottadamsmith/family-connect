@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { FormEvent, useState } from "react";
 import * as ticTacToeEngine from "./ticTacToeEngine"
 
 function TicTacToe() {
@@ -6,7 +6,7 @@ function TicTacToe() {
   const [playerTwoName, setPlayerTwoName] = useState<string>("");
   const [board, setBoard] = useState<ticTacToeEngine.Board | null>(null)
 
-  const startGame = (e): void => {
+  const startGame = (e: FormEvent): void => {
     e.preventDefault();
 
     const newboard: ticTacToeEngine.Board = new ticTacToeEngine.Board(playerOneName);
