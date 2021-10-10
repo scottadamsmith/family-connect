@@ -3,7 +3,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@auth0/auth0-react": "^1.8.0",
     "@testing-library/jest-dom": "^5.11.4",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
@@ -28,8 +27,17 @@
   "eslintConfig": {
     "extends": [
       "react-app",
-      "react-app/jest"
-    ]
+      "react-app/jest",
+      "plugin:jest/style"
+    ],
+    "rules": {
+      "jest/valid-expect": [
+        "error",
+        {
+          "maxArgs": 2
+        }
+      ]
+    }
   },
   "browserslist": {
     "production": [
@@ -42,5 +50,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest-expect-message": "^1.0.3",
+    "jest-expect-message": "^1.0.2"
   }
 }

@@ -1,12 +1,31 @@
-import React from 'react';
+import React from "react";
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
+import TicTacToe from "./TicTacToe";
 import './App.css';
-import AuthenticationButton from './components/AuthenticationButton';
 
 function App() {
   return (
-    <div className="App">
-      <AuthenticationButton />
-    </div>
+    <Router>
+      <div>
+        <nav>
+          <ul>
+            <li>
+              <Link to="/tictactoe">Tic Tac Toe</Link>
+            </li>
+          </ul>
+        </nav>
+        <Switch>
+          <Route path="/tictactoe">
+            <TicTacToe />
+          </Route>
+        </Switch>
+      </div>
+    </Router>
   );
 }
 
