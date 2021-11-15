@@ -1,4 +1,4 @@
-import * as game from "./ticTacToeEngine"
+import * as engine from "./ticTacToe/engine"
 
 function getRandomInt(min: number, max: number) {
   min = Math.ceil(min);

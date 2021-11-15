@@ -1,42 +1,43 @@
 import React, { useState } from "react";
 import {
-  FormControl,
-  FormLabel,
-  Button,
-  FormErrorMessage,
-  Input,
+  // FormControl,
+  // FormLabel,
+  // Button,
+  // FormErrorMessage,
+  // Input,
   Flex,
-  Grid,
-  Box
+  // Grid,
+  // Box
 } from "@chakra-ui/react"
 import { useForm } from 'react-hook-form';
-import * as ticTacToeEngine from "./ticTacToeEngine"
+import * as engine from "./engine"
 
-type StartGameForm = {
-  playerOneName: string;
-  playerTwoName: string;
-};
+// type StartGameForm = {
+//   playerOneName: string;
+//   playerTwoName: string;
+// };
 
-function TicTacToe() {
-  const [board, setBoard] = useState<ticTacToeEngine.Board | null>(null);
+function Board() {
+  const [board, setBoard] = useState<engine.Board | null>(null);
 
-  const {
-    register,
-    handleSubmit,
-    formState: { isValid, errors },
-  } = useForm<StartGameForm>({
-    mode: 'onChange'
-  });
+  // const {
+  //   register,
+  //   handleSubmit,
+  //   formState: { isValid, errors },
+  // } = useForm<StartGameForm>({
+  //   mode: 'onChange'
+  // });
 
-  const startGame = (data: StartGameForm) => {
-    const newboard: ticTacToeEngine.Board = new ticTacToeEngine.Board(data.playerOneName);
-    newboard.joinGame(data.playerTwoName);
-    setBoard(newboard);
-  };
+  // const startGame = (data: StartGameForm) => {
+  //   const newboard: engine.Board = new engine.Board(data.playerOneName);
+  //   newboard.joinGame(data.playerTwoName);
+  //   setBoard(newboard);
+  // };
 
   return (
     <Flex justifyContent="center">
-      {board === null ? 
+
+      {/* {board === null ? 
         <Grid as="form" onSubmit={handleSubmit(startGame)} gridTemplateColumns="1fr" gridAutoRows="min-content" rowGap="1rem" marginTop="1rem" width={{ base: "100%", md: "50%" }}>
           <FormControl isRequired isInvalid={errors.playerOneName !== undefined}>
             <FormLabel>Player One Name</FormLabel>
@@ -52,9 +53,9 @@ function TicTacToe() {
             Start Game
           </Button>
         </Grid> : <div>Start the game (coming soon)!</div>
-      }
+      } */}
     </Flex>
   );
 }
 
-export default TicTacToe;
+export default Board;

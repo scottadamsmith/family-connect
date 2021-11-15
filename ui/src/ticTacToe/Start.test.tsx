@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen, fireEvent } from '@testing-library/react';
-import TicTacToe from './TicTacToe';
+import Start from './Start';
 
 test('renders game setup form intially', () => {
-  render(<TicTacToe />);
+  render(<Start />);
 
   const playerOneNameInput = screen.getByLabelText(/Enter name for player one/i);
   expect(playerOneNameInput).toBeInTheDocument();
@@ -21,7 +21,7 @@ test('renders game setup form intially', () => {
 });
 
 test('enables start game button when player names are entered', () => {
-  render(<TicTacToe />);
+  render(<Start />);
 
   const startGameButton = screen.getByRole("button", {
     name: /Start Game/
@@ -40,7 +40,7 @@ test('enables start game button when player names are entered', () => {
 });
 
 test('starts game', () => {
-  render(<TicTacToe />);
+  render(<Start />);
 
   const startGameButton: HTMLElement = screen.getByRole("button", {
     name: /Start Game/

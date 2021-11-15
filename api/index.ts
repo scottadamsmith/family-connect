@@ -19,7 +19,6 @@ const driver = neo4j.driver(
 );
 
 function context({ event, context }: { event: any, context: any }): any {
-
     return ({
         event,
         context,
@@ -33,7 +32,6 @@ const server:ApolloServer = new ApolloServer(
         context,
     });
 
-// // @ts-ignore
 server.listen().then(({ url }) => {
     console.log(`🚀 Server ready at ${url}`);
 });
@@ -43,7 +41,7 @@ process.on('SIGTERM', () => {
     server.stop()
 });
 process.on('SIGINT', () => {
-    console.info('SIGTERM signal received.');
+    console.info('SIGINT signal received.');
     server.stop()
 });
 

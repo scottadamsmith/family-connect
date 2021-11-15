@@ -1,11 +1,32 @@
-type User {
-  userName: String!
-  firstName: String
-  lastName: String
+directive @id(autogenerate: Boolean! = true) on FIELD_DEFINITION
+
+# enum TimestampOperation {
+#     CREATE
+#     UPDATE
+# }
+
+# directive @timestamp(
+#     operations: [TimestampOperation!]! = [CREATE, UPDATE]
+# ) on FIELD_DEFINITION
+
+enum TicTacToeMark {
+  X,
+  O
 }
 
-type Message {
-  text: String
-  timestamp: DateTime
+type TicTacToePlayer {
+  id: ID! @id
+  name: String!
+  mark: TicTacToeMark!
+  # lastModified: DateTime! @timestamp
 }
 
+type TicTacToeGame {
+  id: ID! @id
+  winner: TicTacToePlayer @relationship(type: "WON_BY", direction: OUT)
+  currentPlayer: TicTacToePlayer @relationship(type: "CURRENT_PLAYER", direction: OUT)
+  playerOne: TicTacToePlayer @relationship(type: "PLAYED_BY", direction: IN)
+  playerTwo: TicTacToePlayer @relationship(type: "PLAYED_BY", direction: IN)
+  plays: [TicTacToePlayer] @relationship(type: "MADE_BY", direction: OUT)
+  # lastModified: DateTime! @timestamp
+}

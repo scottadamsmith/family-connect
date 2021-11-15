@@ -5,7 +5,7 @@ import {
   Route,
   Link
 } from "react-router-dom";
-import { ChakraProvider } from "@chakra-ui/react"
+// import { ChakraProvider } from "@chakra-ui/react"
 import {
   // Box,
   UnorderedList,
@@ -24,13 +24,13 @@ import {
   // useBreakpointValue,
   // useDisclosure,
 } from '@chakra-ui/react';
-import {
-  HamburgerIcon,
-  CloseIcon,
-  ChevronDownIcon,
-  ChevronRightIcon,  
-} from '@chakra-ui/icons';
-import TicTacToe from "./TicTacToe";
+// import {
+//   HamburgerIcon,
+//   CloseIcon,
+//   ChevronDownIcon,
+//   ChevronRightIcon,  
+// } from '@chakra-ui/icons';
+import StartTicTacToe from "./ticTacToe/Start";
 import styles from './App.module.css';
 import ColorModeButton from './ColorModeButton';
 
@@ -62,7 +62,7 @@ function App() {
       <main>
         <Switch>
           <Route path="/tictactoe">
-            <TicTacToe />
+            <StartTicTacToe />
           </Route>
         </Switch>
       </main>
